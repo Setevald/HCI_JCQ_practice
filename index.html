@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        button {
+            margin: 10px;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: white;
+            color:black;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="Center">Hi there click one of these</h1>
+    <button onclick="redirectToFolder('Dropdown surprise')">Dropdown surprise</button>
+    <button onclick="redirectToFolder('dynamic price calculator')">Dynamic price calculator</button>
+    <button onclick="redirectToFolder('image gallery with filters')">Image gallery</button>
+    <button onclick="redirectToFolder('tabbed widget')">Tabbed widget</button>
+</body>
+    <script>
+        function redirectToFolder(folderName) {
+            window.location.href = `./${folderName}/index.html`;
+        }
+    </script>
+</html>

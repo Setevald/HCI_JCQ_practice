@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed widget</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        .tab {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .active-tab {
+            display: block;
+            opacity: 1;
+        }
+        .tab-button {
+            cursor: pointer;
+            padding: 8px 16px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 10px 10px 0 0;
+        }
+        .tab-button.active {
+            background-color: #fff;
+        }
+        .content {
+            padding: 16px;
+            border: 1px solid #ccc;
+            border-radius: 0 0 10px 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align= Center>Tabbed widget</h1>
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'news')">News</button>
+        <button class="tab-button" onclick="openTab(event, 'reviews')">Reviews</button>
+        <button class="tab-button" onclick="openTab(event, 'comments')">Comments</button>
+    </div>
+
+    <div id="news" class="tab active-tab">
+        <h2>PepsiCo sued by New York state for plastic pollution</h2>
+        <img src="_131737298_pepsico1.png.webp" width="700">
+        <p>PepsiCo has been sued by New York state for plastic pollution along Buffalo River that is allegedly contaminating the water and harming wildlife. </p>
+
+        <p>According to the lawsuit, PepsiCo is the single largest identifiable contributor to the problem.</p>
+            
+        <p>PepsiCo's spokesperson has told the BBC that it has been "transparent in its journey to reduce use of plastic".</p>
+            
+        <p>Last week Coca-Cola, Danone and Nestle were accused of making misleading claims about their plastic bottles.</p>
+            
+        <p>PepsiCo is the world's second biggest food company and many other big corporations have been facing lawsuits by local authorities about their impact on the environment.</p>
+            
+        <p>Companies are accused of greenwashing when they brand something as more eco-friendly, green or sustainable than it really is. It can mislead consumers who hope to help the planet by choosing those products.</p>
+            
+        <p>"No company is too big to ensure that their products do not damage our environment and public health," said Attorney General Letitia James.</p>
+            
+        <p>When her office conducted a survey of all types of waste collected at 13 sites along the Buffalo River last year, it found that PepsiCo's single-use plastic packaging was the most significant.</p>
+            
+        <p>"Of the 1,916 pieces of plastic trash collected with an identifiable brand, over 17 percent were produced by PepsiCo," it said.</p>
+            
+        <p>Other identifiable brands include McDonald's and candy maker Hershey's.</p>
+            
+        <p>According to New York state, PepsiCo manufactures, produces, and packages at least 85 different beverage brands and 25 snack food brands that predominantly come in single-use plastic containers. Pepsi said in a statement that it was "serious about plastic reduction and effective recycling". </p>
+            
+        <p>It added that this was a "complex issue" which required involvement from "businesses, municipalities, waste-reduction providers, community leaders and consumers". </p>
+            
+        <p>The lawsuit alleged that microplastics have been detected in the city of Buffalo's drinking water supply which "can cause a wide range of adverse health effects, from reproductive dysfunction to inflammation of the intestine and neurotoxic effects".</p>
+    </div>
+
+    <div id="reviews" class="tab">
+        <h2>Reviews:</h2>
+        <ul>
+            <li>Lawsuit and Allegations: New York state sued PepsiCo, citing it as the largest contributor to plastic pollution in Buffalo River, causing harm to wildlife and contaminating the water. PepsiCo's single-use plastic packaging was identified as a significant portion of the collected plastic trash.</li>
+
+            <li>PepsiCo's Response: PepsiCo's spokesperson mentioned their commitment to reducing plastic use and emphasized the complexity of the issue, calling for collaboration among various stakeholders to address it effectively.</li>
+            
+            <li>Broader Context: The lawsuit against PepsiCo is part of a larger trend where big corporations like Coca-Cola, Danone, and Nestle face accusations of misleading environmental claims about their plastic products.</li>
+            
+            <li>Greenwashing Concerns: There's a broader concern about greenwashing, where companies portray their products as more eco-friendly than they are, potentially misleading consumers trying to make environmentally conscious choices.</li>
+            
+            <li>Health and Environmental Impact: The lawsuit alleges that microplastics from the pollution have been found in Buffalo's drinking water supply, raising concerns about potential health issues.</li>
+        </ul>
+        <p>This case underscores the growing pressure on major corporations to take responsibility for their environmental impact, especially regarding plastic pollution. The allegations emphasize the need for stringent measures and genuine efforts to reduce plastic use and prevent harm to the environment and public health.</p>
+    </div>
+
+    <div id="comments" class="tab">
+        <h2>Comments:</h2>
+        <p>It's concerning to see such a significant lawsuit against PepsiCo, highlighting the grave issue of plastic pollution along the Buffalo River. The allegations linking their single-use plastic packaging to environmental contamination and potential health risks are alarming.</p>
+
+        <p>This lawsuit, alongside similar actions against other major corporations, sheds light on the urgent need for responsible environmental stewardship in the industry. The broader concern of greenwashing and misleading claims about eco-friendliness raises questions about transparency and accountability in corporate sustainability efforts.</p>
+            
+        <p>It's encouraging that PepsiCo acknowledges the complexity of the issue and calls for collaboration among stakeholders. However, this situation emphasizes the necessity for swift and substantial action beyond statements, focusing on concrete measures to reduce plastic usage and prevent further harm to the environment and public health. The detection of microplastics in the city's drinking water supply further underscores the seriousness of the issue and the potential risks associated with plastic pollution.</p>
+            
+        <p>Overall, this lawsuit serves as a poignant reminder of the pressing need for corporations to prioritize genuine sustainability efforts, transparency, and accountability to mitigate their environmental impact effectively.</p>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            const tabs = document.getElementsByClassName('tab');
+            const tabButtons = document.getElementsByClassName('tab-button');
+            
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].style.opacity = '0';
+                tabs[i].style.display = 'none';
+                tabButtons[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).style.display = 'block'; /* Show the selected tab */
+            setTimeout(() => {
+                document.getElementById(tabName).style.opacity = '1'; /* Fade in the selected tab */
+            }, 50);
+            
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>

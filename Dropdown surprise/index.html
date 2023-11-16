@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown surprise</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        body {
+            margin: 20px;
+            text-align: center;
+        }
+        #confirmbutton{
+            border: none;
+            background-color: inherit;
+            padding: 16px 28px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            color:green;
+        }
+        #confirmbutton:hover{
+            background-color:green;
+            color:white;
+        }
+        #dropdown{
+            padding:12px 16px;
+            margin:10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dropdown surprise</h1>
+    <h2>Jakarta is so cold, isn't it? </h2>
+    
+    <select id="dropdown">
+        <option value="1">Yes</option>
+        <option value="2">Absolutely</option>
+        <option value="3">Maybe</opinion>
+    </select>
+
+    <button id="confirmbutton">Confirm</button>
+    
+    <script>
+        $(document).ready(function(){
+            function confirmation(value){
+                var confirmed = confirm("Are you sure you want to select '" + value + "'?")
+                return confirmed;
+            }
+
+            $('#confirmbutton').click(function(){
+                var selectedOption = $('#dropdown').val();
+                if (selectedOption === '1') {
+                    confirmed = confirmation('yes');
+                    
+                    if (confirmed) {
+                        alert("(Fun fact: Jakarta is a tropical island which is just heat and storm)🤓☝. Try again");
+                        $("#dropdown").append("<option class='surprise' value='no'>No<option>");
+                    } else {
+                        alert("Confirmation canceled");
+                    }
+                } else if (selectedOption === '2') {
+                    confirmed = confirmation('Absolutely');
+
+                    if (confirmed) {
+                        alert("I'm dissapointed in you, Try again");
+                        $("#dropdown").append("<option class='surprise' value='no'>No<option>");
+                    } else {
+                        alert("Confirmation canceled");
+                    }
+                } else if (selectedOption === '3') {
+                    confirmed = confirmation('Maybe');
+
+                    if (confirmed) {
+                        alert("Why? Are you not sure with your own opinion? Try again");
+                    } else {
+                        alert("Confirmation canceled");
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price calculator</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1 align= Center>Dynamic Product/Service Price Calculator</h2>
+    
+    <label for="quantity">Food Quantity:</label>
+    <input type="number" id="quantity" value="1" min="1" oninput="calculateTotal()"><br>
+
+    <label for="quantity1">Drink Quantity:</label>
+    <input type="number" id="quantity1" value="1" min="1" oninput="calculateTotal()"><br>
+    
+    <p>Features:</p>
+    <input type="checkbox" id="feature1" onchange="calculateTotal()">
+    <label for="feature1">Premium membership (+$10 with tax)</label><br>
+    
+    <input type="checkbox" id="feature2" onchange="calculateTotal()">
+    <label for="feature2">Same day delivery (+$20 with tax)</label><br>
+    
+    <p>Total Price: $<span id="totalPrice">0</span></p>
+
+    <script>
+        function calculateTotal() {
+            const quantity = document.getElementById('quantity').value;
+            const quantity1 = document.getElementById('quantity1').value;
+            const feature1 = document.getElementById('feature1').checked;
+            const feature2 = document.getElementById('feature2').checked;
+
+            let totalPrice = quantity * 20 + quantity1 * 10;
+
+            if (feature1) {
+                totalPrice += 10;
+            }
+            if (feature2) {
+                totalPrice += 20;
+            }
+
+            document.getElementById('totalPrice').textContent = totalPrice.toFixed(2);
+        }
+    </script>
+</body>
+</html>

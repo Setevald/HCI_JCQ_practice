@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image gallery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        .image {
+            display: none;
+            border: 2px solid #ddd; 
+            padding: 5px;
+            border-radius: 10px ;
+        }
+        .show {
+            display: block;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .buttons button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            border: 2px solid #2ea44f;
+            border-radius: 25px;
+            background-color: transparent;
+            color: #2ea44f;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #2ea44f;
+            color: white;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            border-radius: 20px; 
+        }
+
+        .image img {
+            width: 200px;
+            height: auto;
+        }
+        .show {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="buttons">
+        <button onclick="filterSelection('all')">Show All</button>
+        <button onclick="filterSelection('nature')">Nature</button>
+        <button onclick="filterSelection('meme')">Meme</button>
+        <button onclick="filterSelection('animals')">Animals</button>
+    </div>
+
+    <div class="gallery">
+        <div class="image nature show"> <!-- Add classes for filtering -->
+            <img src="nature.webp" alt="Nature 1">
+        </div>
+        <div class="image meme show">
+            <img src="waduh.webp" alt="Meme 1">
+        </div>
+        <div class="image meme show">
+            <img src="3ff15894-adf0-4d46-b36e-57710db414ac-1671309880451.jpg" alt="Meme 3">
+        </div>
+        <div class="image animals show">
+            <img src="hq720.jpg" alt="Animals 1">
+        </div>
+        <div class="image animals show">
+            <img src="angry.gif" alt="Animals 2">
+        </div>
+    </div>
+
+    <script>
+        function filterSelection(category) {
+            const images = document.getElementsByClassName('image');
+
+            if (category === 'all') {
+                for (let i = 0; i < images.length; i++) {
+                    images[i].classList.add('show');
+                }
+            } else {
+                for (let i = 0; i < images.length; i++) {
+                    if (images[i].classList.contains(category)) {
+                        images[i].classList.add('show');
+                    } else {
+                        images[i].classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
